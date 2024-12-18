@@ -236,6 +236,43 @@ Tingkat Kesulitan
                         return
 ```
 
+### 4.3 Fitur Bird
+* **Implementasi**: Menampilkan pergerakan burung.
+* **Konsep OOP**: Kelas Bird mengimplementasikan prinsip pewarisan dan polimorfisme dengan mewarisi kelas AnimatedSprite. Kelas Bird bertanggung jawab untuk logika pergerakan dan animasi burung, sedangkan kelas induk AnimatedSprite menangani animasi umum untuk sprite.
+* **Penerapan SOLID (Optional)**: Mengikuti prinsip OCP untuk memperluas pembuatan animasi baru dengan menurunkan kelas baru seperti Bird. Pada Bird ini juga menerapkan Liskov Substitution Principle (LSP) karena Kelas Bird dapat menggantikan kelas AnimatedSprite tanpa merusak fungsionalitas. Dependency Inversion Principle (DIP) juga diterapkan dengan menjadikan kelas Bird bergantung pada AnimatedSprite.
+* **Design Pattern yang Digunakan (Optional)**: Tidak ada.
+* **Code Snippet**: 
+```
+class AnimatedSprite(pg.sprite.Sprite, ABC):
+    ....
+
+class Bird(AnimatedSprite):
+    ....
+```
+
+### 4.4 Fitur Pipe
+* **Implementasi**: Menampilkan dan menggerakkan pipa yang akan bergerak ke kiri, dengan posisi dan jarak antar pipa yang diatur secara acak, serta pengaturan kesulitan untuk menentukan ukuran celah antara pipa.
+* **Konsep OOP**:
+Kelas Pipe menangani logika dan tampilan pipa, seperti posisi, gambar, dan pergerakan pipa.
+Kelas PipeImageLoader bertanggung jawab untuk memuat gambar pipa.
+Kelas PipePositioner mengatur posisi awal pipa dengan jarak dan ketinggian yang acak.
+* **Penerapan SOLID (Optional)**: Single Responsibility Principle (SRP) dengan rincian Kelas Pipe bertanggung jawab untuk logika dan perilaku pipa, termasuk pergerakan dan menggambar pipa di layar.
+Kelas PipeImageLoader hanya menangani pemuatan gambar pipa dan penyesuaian ukurannya.
+Kelas PipePositioner hanya menangani penentuan posisi pipa dan jarak antar pipa. 
+* **Design Pattern yang Digunakan (Optional)**: Tidak ada.
+* **Code Snippet**: 
+```
+class PipeImageLoader:
+    ....
+
+class PipePositioner:
+    ....
+
+class Pipe:
+    ....
+
+```
+
 ## 5. Screenshot dan Demo
 * **Screenshot 1**: Main Menu
 
@@ -267,7 +304,7 @@ Tingkat Kesulitan
 
 
 
-* **Link Demo Video**: [URL]
+* **Link Demo Video**: https://its.id/m/demopbodemure
 
 ## 6. Panduan Instalasi dan Menjalankan Game
 1. Download semua file dalam folder
@@ -277,10 +314,9 @@ Tingkat Kesulitan
 5. Restart/Kembali ke main menu untuk melihat history
 
 ## 7. Kendala dan Solusi
-1. **Kendala 1**: 
-    * Solusi:
-2. **Kendala 2**:
-    * Solusi:
+1. **Kendala 1**: mengimplementasikan SOLID Principle dalam pengembangan game
+    * Solusi: mencoba untuk menerapkannya dalam bagian per kelas
+
 
 ## 8. Kesimpulan dan Pembelajaran
 * **Kesimpulan**: Proyek pengembangan game Flappy Bird menggunakan OOP berhasil menerapkan fitur Save/Load System dan Achievement System yang meningkatkan pengalaman bermain. Penerapan prinsip SOLID membuat kode lebih terstruktur dan mudah dipelihara. Fitur penyesuaian tingkat kesulitan dan sistem pencapaian memberikan tantangan dan motivasi lebih bagi pemain.
